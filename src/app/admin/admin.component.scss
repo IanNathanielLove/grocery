@@ -1,0 +1,42 @@
+:host{
+    background-color: red;
+}
+
+
+
+.admin_container{
+    top:10%;
+}
+
+.button_group{
+    margin: 5%;
+
+}
+
+.inventory_container{
+    height: 70vh;
+    width: 90%;
+    overflow: scroll;
+    position: relative;
+    margin: 0 auto;
+    
+    border-radius: 4px;
+}
+
+.inventory_list{
+    height:100;
+    width: auto;
+}
+
+.inventory_list p{
+    color: #000;
+    font-size: 1.3rem;
+}
+
+
+
+
+
+.item-col{
+    width: 20%;
+}
