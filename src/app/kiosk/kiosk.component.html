@@ -1,0 +1,12 @@
+<button routerLink="/admin">Admin</button>
+
+
+<input #box (keyup.enter)="onEnter(box.value)">
+<p *ngIf="single_inventory" >{{single_inventory.item_name}}</p>
+<p *ngFor="let item of inventory">{{item.item_name}}</p>
+
+<!-- <button (click)="pay(inventory)">Pay</button> -->
+<p>{{total_price}}</p>
+<div>
+
+<!-- <app-scanner ></app-scanner> -->

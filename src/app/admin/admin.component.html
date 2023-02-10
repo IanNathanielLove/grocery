@@ -1,0 +1,49 @@
+
+<div class="admin_container">
+    <div class="button_group">
+    <button (click)="getInventory(); toggleOpen();" type="button" class="btn btn-outline-dark btn-rounded" mdbRipple rippleColor="dark">View All Inventory</button>
+   
+    <app-item-modal></app-item-modal>
+   
+    <select *ngValue="inventory_dto" (click)="filterByDepartment(inventory_dto.department)" name="department" id="department"  [(ngModel)]="inventory_dto.department" name="department">
+        <option  *ngFor="let item of inventory_dto_list">{{item.department}}      
+        </option>
+    </select>
+
+
+    </div>
+    <div [@openClose]="isOpen ? true : false" class="inventory_container">
+        
+    <div class="inventory_list" *ngFor="let item of inventory_dto_list">
+
+        <table class="table">
+            <thead>
+              <tr>
+               
+                <th class="item-col" scope="col">Item Name</th>
+                <th class="item-col" scope="col">UPC</th>
+                <th class="item-col" scope="col">Quantity</th>
+                <th  class="item-col" scope="col">Price</th>
+                <th class="item-col" scope="col">Remove From Inventory</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                
+                <td class="name">{{item.item_name}}</td>
+                <td>{{item.upc}}</td>
+                <td><button class="btn btn-primary" type="button">-</button>{{item.quantity}}<button class="btn btn-primary" type="button">+</button></td>
+                <td>${{item.price}}</td>
+                <td><button type="button" (click)="deleteItem(item.upc)" class="btn btn-outline-danger btn-rounded" mdbRipple rippleColor="dark">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        
+        <!-- <p class="inventory_name">{{item.item_name}}, {{item.upc}}<br> ${{item.price}} <br>Available:{{item.quantity}}</p> -->
+        <!-- <button (click)="AddInventory(item, inventory_amount)">Change Inventory Count</button> -->
+        <!-- <input [(ngModel)]="inventory_amount" (keyup.enter)="changeInventory(item)"></div> -->
+    </div>
+    <div *ngIf="single_inventory" class="inventory_list"><p>{{single_inventory.item_name}}<br>{{single_inventory.price}}<br>{{single_inventory.inventory_amount}}</p></div>
+    
+
+</div>
